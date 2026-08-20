@@ -1,0 +1,36 @@
+services:
+  api:
+    build: .
+    container_name: day305-api
+    ports:
+      - "5000:5000"
+    networks:
+      - observability
+
+  loki:
+    image: grafana/loki:3.5.0
+    container_name: day305-loki
+    command: -config.file=/etc/loki/loki-config.yaml
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./loki/loki-config.yaml:/etc/loki/loki-config.yaml:ro
+    networks:
+      - observability
+
+  grafana:
+    image: grafana/grafana:12.1.0
+    container_name: day305-grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - loki
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+    networks:
+      - observability
+
+networks:
+  observability:
+    driver: bridge
