@@ -1,0 +1,24 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "panels": [
+    {
+      "datasource": {"type": "loki", "uid": "Loki"},
+      "gridPos": {"h": 12, "w": 24, "x": 0, "y": 0},
+      "id": 1,
+      "options": {
+        "showTime": true,
+        "sortOrder": "Descending",
+        "wrapLines": true
+      },
+      "targets": [
+        {"expr": "{service=\"day305-api\"}", "refId": "A"}
+      ],
+      "title": "Day 305 API Logs",
+      "type": "logs"
+    }
+  ],
+  "schemaVersion": 41,
+  "title": "Day 305 Logs",
+  "version": 1
+}
