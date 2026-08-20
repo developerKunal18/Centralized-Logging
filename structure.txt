@@ -1,0 +1,17 @@
+centralized-logging/
+├── .gitignore
+├── README.md
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+├── app.py
+├── loki/
+│   └── loki-config.yaml
+└── grafana/
+    ├── provisioning/
+    │   ├── datasources/
+    │   │   └── loki.yaml
+    │   └── dashboards/
+    │       └── dashboard.yaml
+    └── dashboards/
+        └── day305-logs.json
