@@ -1,0 +1,11 @@
+apiVersion: 1
+
+providers:
+  - name: Day305
+    orgId: 1
+    folder: Day 305
+    type: file
+    disableDeletion: false
+    editable: true
+    options:
+      path: /var/lib/grafana/dashboards
